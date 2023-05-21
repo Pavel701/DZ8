@@ -102,65 +102,99 @@
 // }
 ///////////////////////////////////////////////////////////////////////////////////
 
+// class Program
+// {
+//     static void Main(string[] args)
+//     {
+//         // Инициализация первой матрицы
+//         int[,] matrix1 = {
+//             { 2, 4 },
+//             { 3, 2 }
+//         };
+
+//         // Инициализация второй матрицы
+//         int[,] matrix2 = {
+//             { 3, 4 },
+//             { 3, 3 }
+//         };
+
+//         // Размер матрицы
+//         int rows1 = matrix1.GetLength(0);
+//         int cols1 = matrix1.GetLength(1);
+//         int rows2 = matrix2.GetLength(0);
+//         int cols2 = matrix2.GetLength(1);
+
+//         // Проверка умножения
+//         if (cols1 != rows2)
+//         {
+//             Console.WriteLine("Невозможно выполнить умножение матриц.");
+//             return;
+//         }
+
+        
+//         int[,] result = new int[rows1, cols2];
+
+//         // Произведение матриц
+//         for (int i = 0; i < rows1; i++)
+//         {
+//             for (int j = 0; j < cols2; j++)
+//             {
+//                 int sum = 0;
+
+//                 for (int k = 0; k < cols1; k++)
+//                 {
+//                     sum += matrix1[i, k] * matrix2[k, j];
+//                 }
+
+//                 result[i, j] = sum;
+//             }
+//         }
+
+//         // Вывод результирующей матрицы
+//         Console.WriteLine("Результирующая матрица:");
+
+//         for (int i = 0; i < rows1; i++)
+//         {
+//             for (int j = 0; j < cols2; j++)
+//             {
+//                 Console.Write(result[i, j] + " ");
+//             }
+
+//             Console.WriteLine();
+//         }
+//     }
+// }
+//////////////////////////////////////////////////////////////////////////////////
+
 class Program
 {
     static void Main(string[] args)
     {
-        // Инициализация первой матрицы
-        int[,] matrix1 = {
-            { 2, 4 },
-            { 3, 2 }
-        };
+        // Формирование трехмерного массива размером 2 x 2 x 2
+        int[,,] array = new int[2, 2, 2];
+        int number = 10; 
 
-        // Инициализация второй матрицы
-        int[,] matrix2 = {
-            { 3, 4 },
-            { 3, 3 }
-        };
-
-        // Размер матрицы
-        int rows1 = matrix1.GetLength(0);
-        int cols1 = matrix1.GetLength(1);
-        int rows2 = matrix2.GetLength(0);
-        int cols2 = matrix2.GetLength(1);
-
-        // Проверка умножения
-        if (cols1 != rows2)
+        for (int i = 0; i < 2; i++)
         {
-            Console.WriteLine("Невозможно выполнить умножение матриц.");
-            return;
-        }
-
-        
-        int[,] result = new int[rows1, cols2];
-
-        // Произведение матриц
-        for (int i = 0; i < rows1; i++)
-        {
-            for (int j = 0; j < cols2; j++)
+            for (int j = 0; j < 2; j++)
             {
-                int sum = 0;
-
-                for (int k = 0; k < cols1; k++)
+                for (int k = 0; k < 2; k++)
                 {
-                    sum += matrix1[i, k] * matrix2[k, j];
+                    array[i, j, k] = number++;
                 }
-
-                result[i, j] = sum;
             }
         }
 
-        // Вывод результирующей матрицы
-        Console.WriteLine("Результирующая матрица:");
-
-        for (int i = 0; i < rows1; i++)
+        // Вывод  массива 
+        for (int i = 0; i < 2; i++)
         {
-            for (int j = 0; j < cols2; j++)
+            for (int j = 0; j < 2; j++)
             {
-                Console.Write(result[i, j] + " ");
+                for (int k = 0; k < 2; k++)
+                {
+                    Console.WriteLine($"Элемент ({i}, {j}, {k}): {array[i, j, k]}");
+                }
             }
-
-            Console.WriteLine();
         }
     }
 }
