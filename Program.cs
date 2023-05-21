@@ -1,8 +1,8 @@
 ﻿class Program {
     static void Main() {
         // размер массива
-        int m = 4;
-        int n = 5;
+        int m = 3;
+        int n = 4;
 
         // создание двумерного массива
         int[,] matrix = new int[m, n];
