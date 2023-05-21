@@ -2,57 +2,55 @@
 {
     static void Main(string[] args)
     {
-        // Инициализация  массива
-        int[,] array = {
+        int[,] arr = {
             { 1, 4, 7, 2},
             { 5, 9, 2, 3 },
             { 8, 4, 2, 4 }
         };
 
-        
-        int rows = array.GetLength(0);
-        int cols = array.GetLength(1);
 
-        
-        for (int i = 0; i < rows; i++)
-        {
-            // Сортировка строки по убыванию
-            SortRowDescending(array, i, cols);
-        }
+        Console.WriteLine("Исходный массив:");
+        PrintArray(arr);
 
-        // Вывод упорядоченного массива
-        Console.WriteLine("Упорядоченный массив:");
+        SortArray(arr);
 
-        for (int i = 0; i < rows; i++)
-        {
-            for (int j = 0; j < cols; j++)
-            {
-                Console.Write(array[i, j] + " ");
-            }
-            Console.WriteLine();
-        }
+        Console.WriteLine("\nУпорядоченный массив:");
+        PrintArray(arr);
     }
 
-    // Метод для сортировки
-    static void SortRowDescending(int[,] array, int row, int cols)
+    static void SortArray(int[,] arr)
     {
-        for (int i = 0; i < cols - 1; i++)
+        for (int i = 0; i < arr.GetLength(0); i++)
         {
-            for (int j = i + 1; j < cols; j++)
+            for (int j = 0; j < arr.GetLength(1) - 1; j++)
             {
-                if (array[row, i] < array[row, j])
+                for (int k = j + 1; k < arr.GetLength(1); k++)
                 {
-                    // Обмен элементов местами
-                    int temp = array[row, i];
-                    array[row, i] = array[row, j];
-                    array[row, j] = temp;
+                    if (arr[i, k] > arr[i, j])
+                    {
+                        int temp = arr[i, j];
+                        arr[i, j] = arr[i, k];
+                        arr[i, k] = temp;
+                    }
                 }
             }
         }
     }
+
+    static void PrintArray(int[,] arr)
+    {
+        for (int i = 0; i < arr.GetLength(0); i++)
+        {
+            for (int j = 0; j < arr.GetLength(1); j++)
+            {
+                Console.Write(arr[i, j] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
 }
 
-///////////////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////////
 
 class Program
 {
@@ -100,7 +98,7 @@ class Program
         Console.WriteLine();
     }
 }
-///////////////////////////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////////////////////
 
 class Program
 {
@@ -164,7 +162,7 @@ class Program
         }
     }
 }
-//////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////////////////////////////////////
 
 class Program
 {
@@ -198,7 +196,7 @@ class Program
         }
     }
 }
-///////////////////////////////////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////////////////////////////
 
 int[,] myArray = new int[4, 4];
 //Индекс текущей строки, индекс текущего столбца и текущее значение элемента
@@ -246,3 +244,5 @@ for (int i = 0; i < myArray.GetLength(0); i++)
     }
     Console.WriteLine();
 }
+
+
