@@ -1,169 +1,169 @@
-﻿// class Program
-// {
-//     static void Main(string[] args)
-//     {
-//         // Инициализация  массива
-//         int[,] array = {
-//             { 1, 4, 7, 2},
-//             { 5, 9, 2, 3 },
-//             { 8, 4, 2, 4 }
-//         };
+﻿class Program
+{
+    static void Main(string[] args)
+    {
+        // Инициализация  массива
+        int[,] array = {
+            { 1, 4, 7, 2},
+            { 5, 9, 2, 3 },
+            { 8, 4, 2, 4 }
+        };
 
         
-//         int rows = array.GetLength(0);
-//         int cols = array.GetLength(1);
+        int rows = array.GetLength(0);
+        int cols = array.GetLength(1);
 
         
-//         for (int i = 0; i < rows; i++)
-//         {
-//             // Сортировка строки по убыванию
-//             SortRowDescending(array, i, cols);
-//         }
+        for (int i = 0; i < rows; i++)
+        {
+            // Сортировка строки по убыванию
+            SortRowDescending(array, i, cols);
+        }
 
-//         // Вывод упорядоченного массива
-//         Console.WriteLine("Упорядоченный массив:");
+        // Вывод упорядоченного массива
+        Console.WriteLine("Упорядоченный массив:");
 
-//         for (int i = 0; i < rows; i++)
-//         {
-//             for (int j = 0; j < cols; j++)
-//             {
-//                 Console.Write(array[i, j] + " ");
-//             }
-//             Console.WriteLine();
-//         }
-//     }
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                Console.Write(array[i, j] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
 
-//     // Метод для сортировки
-//     static void SortRowDescending(int[,] array, int row, int cols)
-//     {
-//         for (int i = 0; i < cols - 1; i++)
-//         {
-//             for (int j = i + 1; j < cols; j++)
-//             {
-//                 if (array[row, i] < array[row, j])
-//                 {
-//                     // Обмен элементов местами
-//                     int temp = array[row, i];
-//                     array[row, i] = array[row, j];
-//                     array[row, j] = temp;
-//                 }
-//             }
-//         }
-//     }
-// }
+    // Метод для сортировки
+    static void SortRowDescending(int[,] array, int row, int cols)
+    {
+        for (int i = 0; i < cols - 1; i++)
+        {
+            for (int j = i + 1; j < cols; j++)
+            {
+                if (array[row, i] < array[row, j])
+                {
+                    // Обмен элементов местами
+                    int temp = array[row, i];
+                    array[row, i] = array[row, j];
+                    array[row, j] = temp;
+                }
+            }
+        }
+    }
+}
 
 ///////////////////////////////////////////////////////////////////////
 
-// class Program
-// {
-//     static void Main(string[] args)
-//     {
-//         // Инициализация прямоугольного двумерного массива
-//         int[,] array = {
-//             {1, 4, 7, 2 },
-//             { 5, 9, 2, 3 },
-//             { 8, 4, 2, 4 },
-//             { 5, 2, 6, 7 }
-//         };
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Инициализация прямоугольного двумерного массива
+        int[,] array = {
+            {1, 4, 7, 2 },
+            { 5, 9, 2, 3 },
+            { 8, 4, 2, 4 },
+            { 5, 2, 6, 7 }
+        };
 
-//         // Размер массива
-//         int rows = array.GetLength(0);
-//         int cols = array.GetLength(1);
+        // Размер массива
+        int rows = array.GetLength(0);
+        int cols = array.GetLength(1);
 
-//         int minSum = int.MaxValue; 
-//         int minSumRow = -1; 
+        int minSum = int.MaxValue; 
+        int minSumRow = -1; 
 
-//         for (int i = 0; i < rows; i++)
-//         {
-//             int sum = 0; 
+        for (int i = 0; i < rows; i++)
+        {
+            int sum = 0; 
 
-//             for (int j = 0; j < cols; j++)
-//             {
-//                 sum += array[i, j];
-//             }
+            for (int j = 0; j < cols; j++)
+            {
+                sum += array[i, j];
+            }
 
-//             if (sum < minSum)
-//             {
-//                 minSum = sum;
-//                 minSumRow = i;
-//             }
-//         }
+            if (sum < minSum)
+            {
+                minSum = sum;
+                minSumRow = i;
+            }
+        }
 
-//         // Вывод строки с наименьшей суммой элементов
-//         Console.WriteLine("Строка с наименьшей суммой элементов: ");
+        // Вывод строки с наименьшей суммой элементов
+        Console.WriteLine("Строка с наименьшей суммой элементов: ");
 
-//         for (int j = 0; j < cols; j++)
-//         {
-//             Console.Write(array[minSumRow, j] + " ");
-//         }
+        for (int j = 0; j < cols; j++)
+        {
+            Console.Write(array[minSumRow, j] + " ");
+        }
 
-//         Console.WriteLine();
-//     }
-// }
+        Console.WriteLine();
+    }
+}
 ///////////////////////////////////////////////////////////////////////////////////
 
-// class Program
-// {
-//     static void Main(string[] args)
-//     {
-//         // Инициализация первой матрицы
-//         int[,] matrix1 = {
-//             { 2, 4 },
-//             { 3, 2 }
-//         };
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Инициализация первой матрицы
+        int[,] matrix1 = {
+            { 2, 4 },
+            { 3, 2 }
+        };
 
-//         // Инициализация второй матрицы
-//         int[,] matrix2 = {
-//             { 3, 4 },
-//             { 3, 3 }
-//         };
+        // Инициализация второй матрицы
+        int[,] matrix2 = {
+            { 3, 4 },
+            { 3, 3 }
+        };
 
-//         // Размер матрицы
-//         int rows1 = matrix1.GetLength(0);
-//         int cols1 = matrix1.GetLength(1);
-//         int rows2 = matrix2.GetLength(0);
-//         int cols2 = matrix2.GetLength(1);
+        // Размер матрицы
+        int rows1 = matrix1.GetLength(0);
+        int cols1 = matrix1.GetLength(1);
+        int rows2 = matrix2.GetLength(0);
+        int cols2 = matrix2.GetLength(1);
 
-//         // Проверка умножения
-//         if (cols1 != rows2)
-//         {
-//             Console.WriteLine("Невозможно выполнить умножение матриц.");
-//             return;
-//         }
+        // Проверка умножения
+        if (cols1 != rows2)
+        {
+            Console.WriteLine("Невозможно выполнить умножение матриц.");
+            return;
+        }
 
         
-//         int[,] result = new int[rows1, cols2];
+        int[,] result = new int[rows1, cols2];
 
-//         // Произведение матриц
-//         for (int i = 0; i < rows1; i++)
-//         {
-//             for (int j = 0; j < cols2; j++)
-//             {
-//                 int sum = 0;
+        // Произведение матриц
+        for (int i = 0; i < rows1; i++)
+        {
+            for (int j = 0; j < cols2; j++)
+            {
+                int sum = 0;
 
-//                 for (int k = 0; k < cols1; k++)
-//                 {
-//                     sum += matrix1[i, k] * matrix2[k, j];
-//                 }
+                for (int k = 0; k < cols1; k++)
+                {
+                    sum += matrix1[i, k] * matrix2[k, j];
+                }
 
-//                 result[i, j] = sum;
-//             }
-//         }
+                result[i, j] = sum;
+            }
+        }
 
-//         // Вывод результирующей матрицы
-//         Console.WriteLine("Результирующая матрица:");
+        // Вывод результирующей матрицы
+        Console.WriteLine("Результирующая матрица:");
 
-//         for (int i = 0; i < rows1; i++)
-//         {
-//             for (int j = 0; j < cols2; j++)
-//             {
-//                 Console.Write(result[i, j] + " ");
-//             }
+        for (int i = 0; i < rows1; i++)
+        {
+            for (int j = 0; j < cols2; j++)
+            {
+                Console.Write(result[i, j] + " ");
+            }
 
-//             Console.WriteLine();
-//         }
-//     }
-// }
+            Console.WriteLine();
+        }
+    }
+}
 //////////////////////////////////////////////////////////////////////////////////
 
 class Program
@@ -197,4 +197,52 @@ class Program
             }
         }
     }
+}
+///////////////////////////////////////////////////////////////////////////////////////////
+
+int[,] myArray = new int[4, 4];
+//Индекс текущей строки, индекс текущего столбца и текущее значение элемента
+int indexRow = 0;
+int indexColumn = 0;
+int elementValue = 1;
+
+while (elementValue <= myArray.Length)
+{
+    // Заполняем верхнюю строку слева направо.
+    for (int i = indexColumn; i < myArray.GetLength(1) - indexColumn; i++)
+    {
+        myArray[indexRow, i] = elementValue;
+        elementValue++;
+    }
+    // Заполняем правый столбец сверху вниз.
+    for (int i = indexRow + 1; i < myArray.GetLength(0) - indexRow; i++)
+    {
+        myArray[i, myArray.GetLength(1) - indexColumn - 1] = elementValue;
+        elementValue++;
+    }
+    // Заполняем нижнюю строку справа налево.
+    for (int i = myArray.GetLength(1) - indexColumn - 2; i >= indexColumn; i--)
+    {
+        myArray[myArray.GetLength(0) - indexRow - 1, i] = elementValue;
+        elementValue++;
+    }
+    // Заполняем левый столбец снизу вверх.
+    for (int i = myArray.GetLength(0) - indexRow - 2; i > indexRow; i--)
+    {
+        myArray[i, indexColumn] = elementValue;
+        elementValue++;
+    }
+    // Переходим к следующей круговой области.
+    indexRow++;
+    indexColumn++;
+}
+
+// Выводим матрицу на экран.
+for (int i = 0; i < myArray.GetLength(0); i++)
+{
+    for (int j = 0; j < myArray.GetLength(1); j++)
+    {
+        Console.Write(myArray[i, j] + " ");
+    }
+    Console.WriteLine();
 }
