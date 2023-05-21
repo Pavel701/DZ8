@@ -54,50 +54,113 @@
 
 ///////////////////////////////////////////////////////////////////////
 
+// class Program
+// {
+//     static void Main(string[] args)
+//     {
+//         // Инициализация прямоугольного двумерного массива
+//         int[,] array = {
+//             {1, 4, 7, 2 },
+//             { 5, 9, 2, 3 },
+//             { 8, 4, 2, 4 },
+//             { 5, 2, 6, 7 }
+//         };
+
+//         // Размер массива
+//         int rows = array.GetLength(0);
+//         int cols = array.GetLength(1);
+
+//         int minSum = int.MaxValue; 
+//         int minSumRow = -1; 
+
+//         for (int i = 0; i < rows; i++)
+//         {
+//             int sum = 0; 
+
+//             for (int j = 0; j < cols; j++)
+//             {
+//                 sum += array[i, j];
+//             }
+
+//             if (sum < minSum)
+//             {
+//                 minSum = sum;
+//                 minSumRow = i;
+//             }
+//         }
+
+//         // Вывод строки с наименьшей суммой элементов
+//         Console.WriteLine("Строка с наименьшей суммой элементов: ");
+
+//         for (int j = 0; j < cols; j++)
+//         {
+//             Console.Write(array[minSumRow, j] + " ");
+//         }
+
+//         Console.WriteLine();
+//     }
+// }
+///////////////////////////////////////////////////////////////////////////////////
+
 class Program
 {
     static void Main(string[] args)
     {
-        // Инициализация прямоугольного двумерного массива
-        int[,] array = {
-            {1, 4, 7, 2 },
-            { 5, 9, 2, 3 },
-            { 8, 4, 2, 4 },
-            { 5, 2, 6, 7 }
+        // Инициализация первой матрицы
+        int[,] matrix1 = {
+            { 2, 4 },
+            { 3, 2 }
         };
 
-        // Получение размеров массива
-        int rows = array.GetLength(0);
-        int cols = array.GetLength(1);
+        // Инициализация второй матрицы
+        int[,] matrix2 = {
+            { 3, 4 },
+            { 3, 3 }
+        };
 
-        // Поиск строки с наименьшей суммой элементов
-        int minSum = int.MaxValue; // Начальное значение минимальной суммы
-        int minSumRow = -1; // Индекс строки с наименьшей суммой
+        // Размер матрицы
+        int rows1 = matrix1.GetLength(0);
+        int cols1 = matrix1.GetLength(1);
+        int rows2 = matrix2.GetLength(0);
+        int cols2 = matrix2.GetLength(1);
 
-        for (int i = 0; i < rows; i++)
+        // Проверка умножения
+        if (cols1 != rows2)
         {
-            int sum = 0; // Сумма элементов текущей строки
+            Console.WriteLine("Невозможно выполнить умножение матриц.");
+            return;
+        }
 
-            for (int j = 0; j < cols; j++)
-            {
-                sum += array[i, j];
-            }
+        
+        int[,] result = new int[rows1, cols2];
 
-            if (sum < minSum)
+        // Произведение матриц
+        for (int i = 0; i < rows1; i++)
+        {
+            for (int j = 0; j < cols2; j++)
             {
-                minSum = sum;
-                minSumRow = i;
+                int sum = 0;
+
+                for (int k = 0; k < cols1; k++)
+                {
+                    sum += matrix1[i, k] * matrix2[k, j];
+                }
+
+                result[i, j] = sum;
             }
         }
 
-        // Вывод строки с наименьшей суммой элементов
-        Console.WriteLine("Строка с наименьшей суммой элементов: ");
+        // Вывод результирующей матрицы
+        Console.WriteLine("Результирующая матрица:");
 
-        for (int j = 0; j < cols; j++)
+        for (int i = 0; i < rows1; i++)
         {
-            Console.Write(array[minSumRow, j] + " ");
-        }
+            for (int j = 0; j < cols2; j++)
+            {
+                Console.Write(result[i, j] + " ");
+            }
 
-        Console.WriteLine();
+            Console.WriteLine();
+        }
     }
 }
