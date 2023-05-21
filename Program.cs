@@ -1,39 +1,53 @@
-﻿class Program {
-    static void Main() {
-        // размер массива
-        int m = 3;
-        int n = 4;
+﻿class Program
+{
+    static void Main(string[] args)
+    {
+        // Инициализация двумерного массива
+        int[,] array = {
+            { 1, 4, 7, 2},
+            { 5, 9, 2, 3 },
+            { 8, 4, 2, 4 }
+        };
 
-        // создание двумерного массива
-        int[,] matrix = new int[m, n];
+        // Получение размеров массива
+        int rows = array.GetLength(0);
+        int cols = array.GetLength(1);
 
-        // заполнение массива
-        Random random = new Random();
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                matrix[i, j] = random.Next(10);
-            }
+        // Упорядочивание элементов каждой строки
+        for (int i = 0; i < rows; i++)
+        {
+            // Сортировка текущей строки по убыванию
+            SortRowDescending(array, i, cols);
         }
 
-        // сортировка элементов каждой строки по убыванию
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n - 1; j++) {
-                for (int k = j + 1; k < n; k++) {
-                    if (matrix[i, k] > matrix[i, j]) {
-                        int temp = matrix[i, k];
-                        matrix[i, k] = matrix[i, j];
-                        matrix[i, j] = temp;
-                    }
-                }
-            }
-        }
+        // Вывод упорядоченного массива
+        Console.WriteLine("Упорядоченный массив:");
 
-        // вывод отсортированного массива на консоль
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                Console.Write(matrix[i, j] + " ");
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                Console.Write(array[i, j] + " ");
             }
             Console.WriteLine();
+        }
+    }
+
+    // Метод для сортировки элементов строки по убыванию
+    static void SortRowDescending(int[,] array, int row, int cols)
+    {
+        for (int i = 0; i < cols - 1; i++)
+        {
+            for (int j = i + 1; j < cols; j++)
+            {
+                if (array[row, i] < array[row, j])
+                {
+                    // Обмен элементов местами
+                    int temp = array[row, i];
+                    array[row, i] = array[row, j];
+                    array[row, j] = temp;
+                }
+            }
         }
     }
 }
