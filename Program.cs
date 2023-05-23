@@ -1,56 +1,27 @@
-﻿class Program
-{
-    static void Main(string[] args)
-    {
-        int[,] arr = {
-            { 1, 4, 7, 2},
-            { 5, 9, 2, 3 },
-            { 8, 4, 2, 4 }
-        };
+﻿int[,] myArray = { {1, 4, 7, 2}, { 5, 9, 2, 3 }, {8, 4, 2, 4} };
+Console.WriteLine("Упорядоченный массив:");
 
-
-        Console.WriteLine("Исходный массив:");
-        PrintArray(arr);
-
-        SortArray(arr);
-
-        Console.WriteLine("\nУпорядоченный массив:");
-        PrintArray(arr);
-    }
-
-    static void SortArray(int[,] arr)
-    {
-        for (int i = 0; i < arr.GetLength(0); i++)
-        {
-            for (int j = 0; j < arr.GetLength(1) - 1; j++)
-            {
-                for (int k = j + 1; k < arr.GetLength(1); k++)
-                {
-                    if (arr[i, k] > arr[i, j])
-                    {
-                        int temp = arr[i, j];
-                        arr[i, j] = arr[i, k];
-                        arr[i, k] = temp;
-                    }
-                }
+for (int i = 0; i < myArray.GetLength(0); i++) {
+    for (int j = 0; j < myArray.GetLength(1); j++) {
+        for (int k = j + 1; k < myArray.GetLength(1); k++) {
+            if (myArray[i, j] < myArray[i, k]) {
+                int temp = myArray[i, j];
+                myArray[i, j] = myArray[i, k];
+                myArray[i, k] = temp;
             }
-        }
-    }
-
-    static void PrintArray(int[,] arr)
-    {
-        for (int i = 0; i < arr.GetLength(0); i++)
-        {
-            for (int j = 0; j < arr.GetLength(1); j++)
-            {
-                Console.Write(arr[i, j] + " ");
-            }
-            Console.WriteLine();
         }
     }
 }
 
-// ///////////////////////////////////////////////////////////////////////
+// Вывод упорядоченного массива
+for (int i = 0; i < myArray.GetLength(0); i++) {
+    for (int j = 0; j < myArray.GetLength(1); j++) {
+        Console.Write(myArray[i, j] + " ");
+    }
+    
+    Console.WriteLine();
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////
 
 class Program
 {
@@ -98,7 +69,7 @@ class Program
         Console.WriteLine();
     }
 }
-// ///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class Program
 {
@@ -162,7 +133,7 @@ class Program
         }
     }
 }
-// //////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class Program
 {
@@ -196,7 +167,7 @@ class Program
         }
     }
 }
-// ///////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////
 
 int[,] myArray = new int[4, 4];
 //Индекс текущей строки, индекс текущего столбца и текущее значение элемента
@@ -244,5 +215,4 @@ for (int i = 0; i < myArray.GetLength(0); i++)
     }
     Console.WriteLine();
 }
-
 
